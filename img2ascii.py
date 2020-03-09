@@ -52,10 +52,7 @@ if __name__ == '__main__':
     image_path = sys.argv[1]
     width = int(sys.argv[2])
 
-    img = Image.open(image_path)
-    img = resize(img, width_px=width)
-    img = convert_to_grayscale(img)
-
+    img = convert_to_grayscale(resize(Image.open(image_path), width_px=width))
     img_as_ascii = convert_to_ascii(img)
 
     print_ascii(img_as_ascii, row_width=width)
